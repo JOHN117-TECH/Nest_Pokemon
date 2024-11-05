@@ -18,7 +18,9 @@ import { JoiValidationSchema } from './config/joi.validation';
       load: [EnvConfiguration],
       validationSchema: JoiValidationSchema
     }),
-    MongooseModule.forRoot(process.env.MONGODB),
+    MongooseModule.forRoot(process.env.MONGODB, {
+      dbName: "nest-pokemon"
+    }),
     PokemonModule,
     SeedModule
   ],
