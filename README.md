@@ -17,7 +17,7 @@ yarn install
 npm i -g @nestjs/cli
 ```
 
-4. Levantar la base de datos
+4. Descargar y montar la base de datos
 
 ```
 docker-compose up -d
@@ -44,6 +44,16 @@ npm i @nestjs/mongoose mongoose
 
 ```
 npm i joi
+```
+
+# Production Build
+
+1. Crear el archivo `.env.prod`
+2. Llenar las variables de entorno de prod
+3. Crear la nueva imagen
+
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
 ```
 
 10. Ejecutar la aplicación en dev:
