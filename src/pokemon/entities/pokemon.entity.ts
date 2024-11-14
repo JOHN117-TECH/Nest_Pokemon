@@ -15,6 +15,15 @@ export class Pokemon extends Document {
         index: true,
     })
     no: number;
+
 }
 
 export const PokemonSchema = SchemaFactory.createForClass(Pokemon)
+
+// Middleware pre-save para convertir el nombre a minúsculas antes de guardar
+PokemonSchema.pre("save", function (next) {
+    if (this.isModified("name")) {
+        this.name = this.name.toLowerCase();
+    }
+    next();
+});
